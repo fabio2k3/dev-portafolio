@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio — Fabio Alonso</title>
+  <link rel="stylesheet" href="styles_clean.css">
 </head>
 <body>
-    <p>Hola Mundo</p>
+  <div class="container">
+    <header class="site-header">
+      <div class="logo">Portafolio</div>
+      <nav aria-label="Menú principal">
+        <a class="nav-link" href="#about">About-Me</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <h1 class="hero-title">Fabio Alonso</h1>
+        <p class="hero-subtitle">Web Developer</p>
+      </section>
+
+      <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="card">
+          <!-- Rellena aquí tu biografía -->
+        </div>
+      </section>
+
+      <div class="two-col">
+        <section id="projects" class="projects">
+          <h3>Projects</h3>
+          <div class="card">
+            <!-- Contenido inicial de proyectos -->
+          </div>
+        </section>
+
+        <aside class="right-col" aria-label="Columna derecha">
+          <section id="skills" class="skills">
+            <h3>Skills</h3>
+            <div class="card">
+              <!-- Iconos o listados de skills -->
+            </div>
+          </section>
+
+          <section id="contact" class="contact">
+            <h3>Contact</h3>
+            <div class="card">
+              <form>
+                <input type="text" name="name" placeholder="Tu nombre" />
+                <input type="email" name="email" placeholder="Tu correo" />
+                <textarea name="message" rows="4" placeholder="Mensaje"></textarea>
+                <button type="submit">Enviar</button>
+              </form>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
