@@ -6,6 +6,7 @@
   <title>Portafolio — Fabio Alonso</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container">
     <header class="site-header">
@@ -26,7 +27,7 @@
       <section id="about" class="about">
         <h2>About Me</h2>
         <div class="card">
-          <!-- Rellena aquí tu biografía -->
+          <p>My Name is Fabio</p>
         </div>
       </section>
 
@@ -34,7 +35,7 @@
         <section id="projects" class="projects">
           <h3>Projects</h3>
           <div class="card">
-            <!-- Contenido inicial de proyectos -->
+            <p>Card Game: Gwent <a target="_blank" href="https://github.com/fabio2k3/Proyecto-Pro-Gwent">go to check my Project</a></p>
           </div>
         </section>
 
@@ -42,7 +43,10 @@
           <section id="skills" class="skills">
             <h3>Skills</h3>
             <div class="card">
-              <!-- Iconos o listados de skills -->
+              <p>c#</p>
+              <p>python#</p>
+              <p>html</p>
+              <p>css</p>
             </div>
           </section>
 
@@ -61,5 +65,16 @@
       </div>
     </main>
   </div>
+
+
+   <!-- Overlay / Modal: añadir antes de </body> -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Cerrar">&times;</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
