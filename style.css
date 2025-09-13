@@ -1,169 +1,288 @@
-/* styles_clean.css — CSS limpio y minimalista para el portafolio */
+/* style.css — Paleta y estilos según tu propuesta */
 
-/* Box sizing */
-*, *::before, *::after { box-sizing: border-box; }
+/*  Variables de color (fácil de cambiar)  */
+:root{
+  --blue-dark: #2C3E50;      /* encabezados y elementos destacados */
+  --gray-light: #ECF0F1;     /* fondos claros */
+  --white: #FFFFFF;          /* fondo de contenido */
+  --gray-medium: #7F8C8D;    /* texto secundario */
+  --accent: #1ABC9C;         /* acento / botones / hover */
+  --border: #BDC3C7;         /* línea sutil */
+  --shadow: 0 8px 20px rgba(44,62,80,0.08);
+  --radius: 8px;
+  --max-width: 1100px;
+  --gutter: 20px;
+}
 
-/* Tipografía y base */n
+/*  Reset y base  */
+*,
+*::before,
+*::after { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  line-height: 1.4;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   margin: 0;
-  color: #222;
+  color: var(--blue-dark);
+  background: var(--gray-light); /* página en gris claro para contraste */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Contenedor */
+/* Contenedor centrado */
 .container {
-  max-width: 1100px;
+  max-width: var(--max-width);
   margin: 32px auto;
-  padding: 0 20px;
+  padding: 0 var(--gutter);
 }
 
-/* Header */
+/*  Header / Navegación  */
 .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: var(--white);
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
   margin-bottom: 28px;
 }
+
 .logo {
   font-weight: 700;
   font-size: 1.25rem;
+  color: var(--blue-dark);
 }
+
 nav {
   display: flex;
-  gap: 16px;
+  gap: 14px;
 }
+
 .nav-link {
   text-decoration: none;
   font-weight: 600;
-  padding: 8px 10px;
-  border-radius: 6px;
-  color: inherit;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--blue-dark);
+  transition: background 180ms ease, color 180ms ease, transform 120ms ease;
+  border: 1px solid transparent;
 }
 
-/* Hero */
+.nav-link:hover,
+.nav-link:focus {
+  background: rgba(26,188,156,0.08); /* sutil tono del acento */
+  color: var(--accent);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* línea sutil separadora bajo header */
+.site-header { position: relative; }
+
+/*  Hero  */
 .hero {
+  background: var(--gray-light); 
   text-align: center;
-  padding: 32px 12px;
+  padding: 44px 12px;
+  border-radius: 10px;
   margin-bottom: 28px;
 }
+
 .hero-title {
-  font-size: 2.4rem;
-  margin-bottom: 6px;
+  font-size: 2.6rem;
+  margin: 0 0 6px;
+  font-weight: 600;
+  color: var(--blue-dark);
+  letter-spacing: -0.02em;
 }
+
 .hero-subtitle {
-  font-size: 1.125rem;
-  opacity: 0.9;
+  font-size: 1.05rem;
+  margin: 0;
+  font-weight: 300;
+  color: var(--gray-medium);
+}
+
+/*  Secciones y tarjetas  */
+.section--white { 
+  background: var(--white); 
+  padding: 20px; 
+  border-radius: 10px; 
+  border: 1px solid var(--border); 
+  box-shadow: var(--shadow); 
+}
+
+.section--muted { 
+  background: var(--gray-light); 
+  padding: 20px; 
+  border-radius: 10px; 
 }
 
 /* About */
 .about { margin-bottom: 28px; }
-.about h2 { font-size: 1.5rem; margin-bottom: 12px; }
-.card {
-  border: 1px solid rgba(0,0,0,0.08);
-  padding: 18px;
-  border-radius: 10px;
+.about h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: var(--blue-dark);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
 }
 
-/* Layout dos columnas */
+/* Línea decorativa fina en verde azulado bajo About */
+.about h2::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 56px;
+  background: var(--accent);
+  margin-top: 8px;
+  border-radius: 3px;
+}
+
+/* Card base */
+.card {
+  background: var(--white);
+  border-radius: 6px;
+  padding: 18px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(12,12,12,0.04);
+}
+
+/* Typography inside cards */
+.card p { color: var(--gray-medium); margin: 0 0 10px; line-height: 1.6; }
+
+/*  Layout de dos columnas */
 .two-col {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 24px;
+  margin-bottom: 28px;
 }
-.projects h3, .skills h3, .contact h3 { font-size: 1.25rem; margin-bottom: 10px; }
+
+.projects h3, .skills h3, .contact h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: var(--blue-dark);
+}
+
+/* Right column split */
 .right-col { display: grid; grid-template-rows: auto auto; gap: 20px; }
-.projects .card, .skills .card, .contact .card { min-height: 140px; }
 
-/* Formulario */
-.contact form { display: flex; flex-direction: column; gap: 10px; }
-.contact input, .contact textarea {
-  padding: 10px;
-  border: 1px solid rgba(0,0,0,0.12);
-  border-radius: 6px;
-}
-.contact button {
+/* Projetcs / Buttons */
+.projects .card { display: flex; flex-direction: column; gap: 12px; }
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--accent);
+  color: var(--white);
   padding: 10px 14px;
-  border-radius: 6px;
-  border: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .two-col { grid-template-columns: 1fr; }
-  .hero-title { font-size: 1.8rem; }
+.btn:hover,
+.btn:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(26,188,156,0.18);
+  opacity: 0.98;
+  outline: none;
 }
 
+/*  Skills: etiquetas  */
+.skill-tags { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.tag {
+  display:inline-block;
+  background: var(--gray-light);
+  color: var(--blue-dark);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid rgba(44,62,80,0.04);
+}
 
-/* ---------- Modal/Overlay y efecto de enfoque ---------- */
+/*  Contact (form)  */
+.contact .card { display:flex; flex-direction:column; gap:10px; }
+.contact input, .contact textarea {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--blue-dark);
+  background: #fff;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
 
+.contact input:focus, .contact textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px rgba(26,188,156,0.10);
+}
+
+/*  Modal / Overlay */
 .overlay {
   position: fixed;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.45);
+  background: rgba(44,62,80,0.52);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 240ms ease;
+  transition: opacity 200ms ease;
   z-index: 9999;
 }
-
 .overlay.open {
   opacity: 1;
   pointer-events: auto;
 }
-
-/* Caja del modal */
 .modal {
-  background: #fff;
+  background: var(--white);
   width: min(920px, 95%);
   max-height: 90vh;
   overflow: auto;
   border-radius: 12px;
-  box-shadow: 0 18px 40px rgba(10,10,10,0.4);
-  transform: scale(.96);
+  box-shadow: 0 18px 40px rgba(10,10,10,0.25);
+  transform: translateY(6px) scale(.99);
   opacity: 0;
-  transition: transform 240ms ease, opacity 240ms ease;
-  padding: 20px;
+  transition: transform 200ms ease, opacity 200ms ease;
+  padding: 22px;
   position: relative;
+  border: 1px solid rgba(0,0,0,0.06);
 }
-
-/* Cuando overlay está abierto, escala y aparece */
 .overlay.open .modal {
-  transform: scale(1);
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
-
-/* Botón para cerrar */
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 12px;
+  right: 12px;
   border: 0;
   background: transparent;
   font-size: 1.6rem;
-  line-height: 1;
+  color: var(--blue-dark);
   cursor: pointer;
   padding: 6px;
 }
+.modal-body { padding-top: 8px; color: var(--gray-medium); }
 
-/* Cuerpo del contenido dentro del modal */
-.modal-body {
-  padding-top: 10px;
+/* Blur al fondo cuando está abierto (aplica a container) */
+.container.blurred { filter: blur(6px) saturate(.95); transition: filter 200ms ease; pointer-events: none; }
+
+/* ---------- Pequeños ajustes visuales y responsive ---------- */
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; }
+  .hero-title { font-size: 1.8rem; }
+  .site-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+  .container { margin: 20px auto; }
 }
 
-/* Efecto blur en el contenido de fondo (aplicable a .container) */
-.container.blurred {
-  filter: blur(6px) saturate(.95);
-  transition: filter 240ms ease;
-  pointer-events: none; /* evita clicks accidentales cuando está abierto */
-}
-
-/* Ajustes responsivos */
 @media (max-width: 520px) {
   .modal { width: 96%; padding: 16px; border-radius: 10px; }
   .modal-close { font-size: 1.4rem; top: 8px; right: 8px; }
