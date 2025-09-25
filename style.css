@@ -287,3 +287,24 @@ nav {
   .modal { width: 96%; padding: 16px; border-radius: 10px; }
   .modal-close { font-size: 1.4rem; top: 8px; right: 8px; }
 }
+
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.skill-item:hover {
+  background-color: var(--gray-light);
+}
+
+.skill-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
